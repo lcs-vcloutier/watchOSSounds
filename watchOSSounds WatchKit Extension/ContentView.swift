@@ -11,8 +11,13 @@ struct ContentView: View {
     @State var timer:Timer?
     var body: some View {
         VStack {
+            Button(action:{
+                nil
+            }){
+                Text(timer==nil ? "Start Sound" : "Stop Sound")
+            }
             HStack{
-                Text(.foregroundColor(timer==nil ? "Sound On" : "Sound Off")
+                Text(timer==nil ? "Sound On" : "Sound Off")
                 Image(systemName:"speaker")
             }.foregroundColor(timer==nil ? .red : .green)
         }
