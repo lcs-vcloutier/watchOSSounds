@@ -12,7 +12,18 @@ struct ContentView: View {
     var body: some View {
         VStack {
             Button(action:{
-                nil
+                
+                
+                if self.timer == nil {
+                    self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
+                        WKInterfaceDevice.current().play(.success)
+                    }
+                } else {
+                    self.timer?.invalidate()
+                    self.timer = nil
+                }
+                
+                
             }){
                 Text(timer==nil ? "Start Sound" : "Stop Sound")
             }
